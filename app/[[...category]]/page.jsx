@@ -2,7 +2,6 @@ import HomeContainer from "../../containers/home/Home";
 import React from "react";
 
 import Movies from "../../mocks/movies.json"
-import { notFound } from "next/navigation";
 async function delay (ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
@@ -11,6 +10,10 @@ const Page = async({ params }) => {
   await delay(2000)
   let selectedCategory;
   console.log(params);
+
+  if (params.category?.length > 0) {
+    selectedCategory = true;
+  }
 
 
   return (
